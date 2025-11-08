@@ -29,10 +29,7 @@
       --shadow:0 12px 30px rgba(10,26,68,.08);
       --maxw:1120px;
     }
-    @media (prefers-color-scheme: dark){
-      :root{--bg:#0c142b; --card:#0e1834; --ink:#e8eeff; --muted:#a9b5da; --line:#20315e; --shadow:0 20px 40px rgba(0,0,0,.35)}
-    }
-
+   
     body{background:#ffffff; color:var(--ink); font-family:Lexend, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; line-height:1.6; background-image:repeating-linear-gradient(0deg, rgba(100,149,237,0.06) 0px, rgba(100,149,237,0.06) 1px, transparent 1px, transparent 40px), repeating-linear-gradient(90deg, rgba(100,149,237,0.06) 0px, rgba(100,149,237,0.06) 1px, transparent 1px, transparent 40px); -webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%); mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);}
 
     /* NAV */
