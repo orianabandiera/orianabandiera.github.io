@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PhD Students — Oriana Bandiera</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{ --brand:#8FB8FF; --brand-d:#6495ED; --ink:#4a587a; --muted:#6b7797; --line:#e6eefc; --card:#fff }
+    html{scroll-behavior:smooth;}
+    html,body{margin:0}
+    body{font-family:Lexend, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color:var(--ink); background:#fff; line-height:1.65}
+    .wrap{max-width:1000px; margin:40px auto; padding:0 20px}
+    header{display:flex; justify-content:space-between; align-items:center; gap:16px; border-bottom:1px solid var(--line); padding-bottom:12px}
+    header a{color:var(--ink); text-decoration:none}
+    h1{font-weight:300; letter-spacing:.4px; margin:0}
+
+    /* Cohort buttons (3‑year intervals) */
+    .groupbar{position:sticky; top:0; background:#fff; padding:10px 0; border-bottom:1px solid var(--line); z-index:10; display:flex; flex-wrap:wrap; gap:.4rem}
+    .gbtn{display:inline-block; padding:.45rem .75rem; border-radius:999px; text-decoration:none; font-weight:500; border:1px solid var(--line); color:#203154}
+    .gbtn:nth-child(1){background:#e8f1ff}
+    .gbtn:nth-child(2){background:#e7dbff}
+    .gbtn:nth-child(3){background:#f6e7c8}
+    .gbtn:nth-child(4){background:#dff4e4}
+    .gbtn:nth-child(5){background:#fde7ef}
+    .gbtn:nth-child(6){background:#eaf3ff}
+    .gbtn:hover{filter:saturate(1.08)}
+
+    /* Lists */
+    section{padding:28px 0}
+    .year-title{font-size:1.2rem; font-weight:400; letter-spacing:.3px; color:var(--muted); margin:0 0 10px; padding-top:28px; position:relative;}
+    .year-title::before{content:""; position:absolute; top:0; left:0; right:0; height:1px; background:color-mix(in srgb, var(--brand-d) 25%, transparent 75%);}    
+    .card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:14px; margin:10px 0}
+    .name{font-weight:500}
+    .placement{color:var(--muted)}
+    .empty{color:var(--muted); border:1px dashed var(--line); border-radius:12px; padding:10px 12px}
+
+    footer{margin:40px 0 60px; color:var(--muted); border-top:1px solid var(--line); padding-top:12px}
+    .top{margin-top:12px; text-align:right;}
+    .top a{text-decoration:none; color:var(--brand-d); font-size:.9rem;}
+    .top a:hover{text-decoration:underline;}
+  </style>
+</head>
+<body id="top">
+  <div class="wrap">
+    <header>
+      <h1>PhD Students</h1>
+      <a href="index.html">← Back to Home</a>
+    </header>
+
+    <!-- 3‑year cohort buttons -->
+    <nav class="groupbar" aria-label="Cohort navigation">
+      <a class="gbtn" href="#g2025">2025–2023</a>
+      <a class="gbtn" href="#g2022">2022–2020</a>
+      <a class="gbtn" href="#g2019">2019–2017</a>
+      <a class="gbtn" href="#g2016">2016–2014</a>
+      <a class="gbtn" href="#g2013">2013 and earlier</a>
+    </nav>
+
+    <!-- 2025–2023 -->
+    <section id="g2025">
+      <h2 class="year-title">2025</h2>
+      <div class="card"><div class="name">Gabriela Deschamps</div><div class="placement">PostDoc UCL; AP Gothenburg</div></div>
+      <div class="card"><div class="name">Gabriel Leite-Mariante</div><div class="placement">AP CUNEF Madrid</div></div>
+      <div class="card"><div class="name">Michelle Rao</div><div class="placement">Research Fellow, CGD</div></div>
+      <h2 class="year-title">2024</h2>
+      <div class="card"><div class="name">Philipp Barteska</div><div class="placement">PostDoc HKS; AP HKU</div></div>
+      <div class="card"><div class="name">Gaia Dossi</div><div class="placement">PostDoc UCL; AP Centro Einaudi</div></div>
+      <div class="card"><div class="name">Veronica Salazar-Restrepo</div><div class="placement">AP IIES Stockholm</div></div>
+      <div class="card"><div class="name">Maria Ventura</div><div class="placement">AP, University of Edinburgh</div></div>
+      <h2 class="year-title">2023</h2>
+      <div class="card"><div class="name">Takafumi Kawakubo</div><div class="placement">Assistant Professor, Osaka University</div></div>
+      <div class="card"><div class="name">Virginia Minni</div><div class="placement">Assistant Professor, Booth GSB, University of Chicago</div></div>
+      <div class="card"><div class="name">Anna Vitali</div><div class="placement">Assistant Professor, Department of Economics NYU</div></div>
+      <div class="top"><a href="#top">Back to top ↑</a></div>
+    </section>
+
+    <!-- 2022–2020 -->
+    <section id="g2022">
+      <h2 class="year-title">2022</h2>
+      <div class="card"><div class="name">Amanda Dahlstrand</div><div class="placement">PostDoc Microsoft; Assistant Professor, University of Zurich</div></div>
+      <div class="card"><div class="name">Martina Zanella</div><div class="placement">Assistant Professor, Trinity College Dublin</div></div>
+      <h2 class="year-title">2021</h2>
+      <div class="card"><div class="name">Yusuke Kuroishi</div><div class="placement">Assistant Professor, Hitotsubashi University</div></div>
+      <div class="card"><div class="name">Celine Zipfel</div><div class="placement">Assistant Professor, Stockholm School of Economics</div></div>
+      <h2 class="year-title">2020</h2>
+      <div class="card"><div class="name">Antonella Bancalari</div><div class="placement">Assistant Professor, University of St. Andrews</div></div>
+      <div class="card"><div class="name">Alexia Delfino</div><div class="placement">Assistant Professor, Universita’ Bocconi</div></div>
+      <div class="card"><div class="name">Jay Lee</div><div class="placement">Assistant Professor, Stockholm University</div></div>
+      <div class="card"><div class="name">Niclas Moneke</div><div class="placement">Assistant Professor, University of Oxford</div></div>
+      <div class="top"><a href="#top">Back to top ↑</a></div>
+    </section>
+
+    <!-- 2019–2017 -->
+    <section id="g2019">
+      <h2 class="year-title">2019</h2>
+      <div class="card"><div class="name">Clare Balboni</div><div class="placement">3M Junior Chair in Economics, MIT</div></div>
+      <div class="card"><div class="name">Trang Nguyen</div><div class="placement">Assistant Professor, Kellogg, Northwestern University</div></div>
+      <div class="card"><div class="name">Shan Aman Rana</div><div class="placement">Assistant Professor, University of Virginia</div></div>
+      <div class="card"><div class="name">Roberto Sormani</div><div class="placement">YPP, World Bank</div></div>
+      <div class="card"><div class="name">Torsten Walter</div><div class="placement">Assistant Professor, NYU Abu Dhabi</div></div>
+      <h2 class="year-title">2018</h2>
+      <div class="card"><div class="name">Diego Battiston</div><div class="placement">Assistant Professor, Stockholm School of Economics</div></div>
+      <h2 class="year-title">2017</h2>
+      <div class="card"><div class="name">Michael Best</div><div class="placement">Assistant Professor, Columbia University</div></div>
+      <div class="card"><div class="name">Florian Blum</div><div class="placement">YPP, World Bank</div></div>
+      <div class="card"><div class="name">Nicola Limodio</div><div class="placement">Assistant Professor, Department of Finance, Bocconi University</div></div>
+      <div class="card"><div class="name">Guo Xu</div><div class="placement">Assistant Professor, Haas School of Business, UC Berkeley</div></div>
+      <div class="top"><a href="#top">Back to top ↑</a></div>
+    </section>
+
+    <!-- 2016–2014 -->
+    <section id="g2016">
+      <h2 class="year-title">2016</h2>
+      <div class="card"><div class="name">Anders Jensen</div><div class="placement">Post‑Doc NBER & Assistant Professor, Harvard Kennedy School</div></div>
+      <div class="card"><div class="name">Giulia Zane</div><div class="placement">Postdoctoral Fellow, Department of Economics, Harvard University</div></div>
+      <h2 class="year-title">2015</h2>
+      <div class="card"><div class="name">Erika Deserranno</div><div class="placement">Assistant Professor, Kellogg MEDS, Northwestern University</div></div>
+      <div class="card"><div class="name">Laura Derksen</div><div class="placement">Assistant Professor, Rotman School of Management, University of Toronto</div></div>
+      <div class="card"><div class="name">Ameet Morjaria</div><div class="placement">Assistant Professor, Kellogg MEDS, Northwestern University</div></div>
+      <div class="card"><div class="name">Erina Ytsma</div><div class="placement">Postdoctoral Fellow, Sloan School, MIT</div></div>
+      <h2 class="year-title">2014</h2>
+      <div class="card"><div class="name">Anett Hoffman</div><div class="placement">Assistant Professor, CREST Paris</div></div>
+      <div class="card"><div class="name">Daniel Metzger</div><div class="placement">Assistant Professor, Stockholm School of Economics</div></div>
+      <div class="card"><div class="name">Yanhui Wu</div><div class="placement">Assistant Professor, USC</div></div>
+      <div class="top"><a href="#top">Back to top ↑</a></div>
+    </section>
+
+    <!-- 2013 and earlier -->
+    <section id="g2013">
+      <h2 class="year-title">2013 and earlier</h2>
+      <div class="card"><div class="name">Selim Gulesci</div><div class="placement">Assistant Professor, Universita’ Bocconi</div></div>
+      <div class="card"><div class="name">Prakarsh Singh</div><div class="placement">Assistant Professor, UMass Amherst</div></div>
+      <div class="card"><div class="name">Munshi Sulaiman</div><div class="placement">Post Doctoral Fellow, Yale</div></div>
+      <div class="card"><div class="name">Sanchari Roy</div><div class="placement">Post Doctoral Fellow, University of Warwick</div></div>
+      <div class="card"><div class="name">Stefanie Sieber</div><div class="placement">Young Professional Program, World Bank</div></div>
+      <div class="card"><div class="name">Sonia Goncalves</div><div class="placement">King’s College</div></div>
+      <div class="card"><div class="name">Jin Wang</div><div class="placement">Hong Kong University of Science and Technology</div></div>
+      <div class="card"><div class="name">Kumar Aniket</div><div class="placement">New Hall & Trinity College, University of Cambridge</div></div>
+      <div class="card"><div class="name">Irma Clots-Figueras</div><div class="placement">Universidad Carlos III, Madrid</div></div>
+      <div class="top"><a href="#top">Back to top ↑</a></div>
+    </section>
+
+    <footer>
+      Last updated <span id="y"></span>.
+    </footer>
+  </div>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
