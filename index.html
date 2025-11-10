@@ -266,6 +266,7 @@
     </section>
 
     <!-- STUDENTS ON THE MARKET -->
+    <!-- STUDENTS ON THE MARKET -->
     <section id="students">
       <div class="container">
         <div class="section-head">
@@ -274,19 +275,44 @@
             <a href="phdstudents.html" class="chip" style="text-decoration:none; color:inherit;">Earlier cohorts</a>
           </div>
         </div>
-        <p class="muted" style="font-size:0.95rem; line-height:1.8;">
-          <a target="_blank" href="https://scholar.google.com/scholar?q=Ignacio+Banares+Sanchez">Ignacio Banares Sanchez</a> • 
-          <a target="_blank" href="https://scholar.google.com/scholar?q=Anton+Heil">Anton Heil</a> • 
-          <a target="_blank" href="https://scholar.google.com/scholar?q=Nilmini+Herath">Nilmini Herath</a> • 
-          <a target="_blank" href="https://scholar.google.com/scholar?q=Amen+Jalal">Amen Jalal</a> • 
-          <a target="_blank" href="https://scholar.google.com/scholar?q=Ananya+Kotia">Ananya Kotia</a> • 
-          <a target="_blank" href="https://scholar.google.com/scholar?q=Andrea+Smurra">Andrea Smurra</a> • 
-          <a target="_blank" href="https://scholar.google.com/scholar?q=Caterina+Soto+Viera">Caterina Soto Viera</a> • 
-          <a target="_blank" href="https://scholar.google.com/scholar?q=Sarah+Winton">Sarah Winton</a>
-        </p>
+        <!-- Begin Word Cloud -->
+        <div class="student-wordcloud" style="margin: 30px 0; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+          <a target="_blank" href="https://scholar.google.com/scholar?q=Ignacio+Banares+Sanchez" class="wc1">Ignacio Banares Sanchez</a>
+          <a target="_blank" href="https://scholar.google.com/scholar?q=Anton+Heil" class="wc2">Anton Heil</a>
+          <a target="_blank" href="https://scholar.google.com/scholar?q=Nilmini+Herath" class="wc3">Nilmini Herath</a>
+          <a target="_blank" href="https://scholar.google.com/scholar?q=Amen+Jalal" class="wc4">Amen Jalal</a>
+          <a target="_blank" href="https://scholar.google.com/scholar?q=Ananya+Kotia" class="wc5">Ananya Kotia</a>
+          <a target="_blank" href="https://scholar.google.com/scholar?q=Andrea+Smurra" class="wc6">Andrea Smurra</a>
+          <a target="_blank" href="https://scholar.google.com/scholar?q=Caterina+Soto+Viera" class="wc2">Caterina Soto Viera</a>
+          <a target="_blank" href="https://scholar.google.com/scholar?q=Sarah+Winton" class="wc4">Sarah Winton</a>
+        </div>
+        <style>
+          /* Simple word cloud effect */
+          .student-wordcloud a {
+            text-decoration: none;
+            color: var(--brand-d);
+            border-radius: 8px;
+            transition: background 0.15s, color 0.15s, transform 0.15s;
+            font-family: Lexend, system-ui, sans-serif;
+            font-weight: 400;
+            padding: 4px 10px;
+            display: inline-block;
+          }
+          .student-wordcloud a.wc1 { font-size: 1.5rem; font-weight: 600; color: #6B7797; }
+          .student-wordcloud a.wc2 { font-size: 1.3rem; font-weight: 500; color: #6495ED; }
+          .student-wordcloud a.wc3 { font-size: 1.15rem; font-weight: 400; color: #8FB8FF; }
+          .student-wordcloud a.wc4 { font-size: 1.7rem; font-weight: 600; color: #465370; }
+          .student-wordcloud a.wc5 { font-size: 1.18rem; font-weight: 400; color: #a082b9; }
+          .student-wordcloud a.wc6 { font-size: 1.4rem; font-weight: 600; color: #90b77d; }
+          .student-wordcloud a:hover {
+            background: color-mix(in srgb, var(--brand) 18%, white 82%);
+            color: #222a3e;
+            transform: scale(1.09);
+          }
+        </style>
+        <!-- End Word Cloud -->
       </div>
     </section>
-
     <!-- TEACHING -->
     <section id="teaching">
       <div class="container">
