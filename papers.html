@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Oriana Bandiera – Papers by Topic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      color: #111;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px 16px 8px;
+    }
+    header h1 {
+      font-size: 32px;
+      font-weight: 600;
+      margin: 0 0 4px 0;
+    }
+    header p {
+      margin: 0 0 8px 0;
+    }
+    nav {
+      margin: 8px 0 0 0;
+      font-size: 15px;
+    }
+    nav a {
+      margin-right: 12px;
+      text-decoration: none;
+      color: #0366d6;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 16px 40px;
+    }
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-top: 32px;
+      margin-bottom: 10px;
+    }
+    #topic-filters {
+      margin: 10px 0 6px 0;
+    }
+    #topic-filters button {
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0 12px 6px 0;
+      font-family: inherit;
+      font-size: 15px;
+      color: #0366d6;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    #topic-filters button[aria-pressed="true"] {
+      font-weight: 600;
+      text-decoration: none;
+      color: #111;
+    }
+    #papers-search {
+      width: 100%;
+      max-width: 520px;
+      font-family: inherit;
+      font-size: 15px;
+      padding: 6px 8px;
+      margin: 10px 0 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    #papers-count {
+      font-size: 14px;
+      color: #555;
+      margin: 4px 0 14px 0;
+    }
+    .paper-item {
+      margin-bottom: 16px;
+    }
+    .paper-title {
+      font-weight: 600;
+    }
+    .paper-title a {
+      color: #0366d6;
+      text-decoration: none;
+    }
+    .paper-title a:hover {
+      text-decoration: underline;
+    }
+    .paper-meta {
+      font-size: 14px;
+      color: #555;
+    }
+    .paper-topics {
+      font-size: 13px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Oriana Bandiera</h1>
+  <p>Sir Anthony Atkinson Professor of Economics, LSE.</p>
+  <nav>
+    <a href="https://orianabandiera.github.io/">About</a>
+    <a href="https://orianabandiera.github.io/#research">Research</a>
+    <a href="https://orianabandiera.github.io/#students">Students</a>
+    <a href="https://orianabandiera.github.io/#teaching">Teaching</a>
+    <a href="cv.pdf">CV</a>
+  </nav>
+</header>
+<main>
+  <section id="papers-by-topic">
+    <h2>Papers by topic</h2>
+    <div id="topic-filters"></div>
+    <input type="search" id="papers-search" placeholder="Search papers…" autocomplete="off">
+    <div id="papers-count"></div>
+    <div id="papers-list"></div>
+  </section>
+</main>
+<script>
+  const PAPERS = [
+    {
+      title: 'Does Financial Liberalisation Raise or Reduce Savings?',
+      year: 2000,
+      venue: 'Review of Economics and Statistics',
+      url: 'https://scholar.google.com/scholar_lookup?title=Does%20Financial%20Liberalisation%20Raise%20or%20Reduce%20Savings%3F',
+      topics: ['policy evaluation', 'multi-country']
+    },
+    {
+      title: 'Private States and the Enforcement of Property Rights: Theory and Evidence on the Origins of the Sicilian Mafia',
+      year: 2003,
+      venue: 'Journal of Law, Economics, and Organization',
+      url: 'https://scholar.google.com/scholar_lookup?title=Private%20States%20and%20the%20Enforcement%20of%20Property%20Rights%3A%20Theory%20and%20Evidence%20on%20the%20Origins%20of%20the%20Sicilian%20Mafia',
+      topics: ['archive data', 'organisations', 'public goods', 'italy']
+    },
+    {
+      title: 'Private Enforcement and Social Efficiency',
+      year: 2005,
+      venue: 'Journal of Development Economics',
+      url: 'https://scholar.google.com/scholar_lookup?title=Private%20Enforcement%20and%20Social%20Efficiency',
+      topics: ['applied theory', 'organisations', 'public goods']
+    },
+    {
+      title: 'Traders, Cops and Robbers',
+      year: 2006,
+      venue: 'Journal of International Economics',
+      url: 'https://scholar.google.com/scholar_lookup?title=Traders%2C%20Cops%20and%20Robbers',
+      topics: ['applied theory']
+    },
+    {
+      title: 'Social Networks and the Adoption of New Technology in Northern Mozambique',
+      year: 2006,
+      venue: 'Economic Journal',
+      url: 'https://scholar.google.com/scholar_lookup?title=Social%20Networks%20and%20the%20Adoption%20of%20New%20Technology%20in%20Northern%20Mozambique',
+      topics: ['field data', 'rural village economies', 'mozambique']
+    },
+    {
+      title: 'Land Distribution, Incentives and the Choice of Production Techniques: Theory and Evidence from Rural Nicaragua',
+      year: 2007,
+      venue: 'World Bank Economic Review',
+      url: 'https://scholar.google.com/scholar_lookup?title=Land%20Distribution%2C%20Incentives%20and%20the%20Choice%20of%20Production%20Techniques%3A%20Theory%20and%20Evidence%20from%20Rural%20Nicaragua',
+      topics: ['contracts', 'rural village economies', 'inequality', 'nicaragua']
+    },
+    {
+      title: 'Incentives for Managers and Inequality Among Workers: Evidence from a Firm-Level Experiment',
+      year: 2007,
+      venue: 'Quarterly Journal of Economics',
+      url: 'https://scholar.google.com/scholar_lookup?title=Incentives%20for%20Managers%20and%20Inequality%20Among%20Workers%3A%20Evidence%20from%20a%20Firm-Level%20Experiment',
+      topics: ['contracts', 'field experiments', 'organisations', 'uk']
+    },
+    {
+      title: 'Contract Duration and Investment Incentives: Evidence from Land Tenancy Agreements in 19th Century Italy',
+      year: 2007,
+      venue: 'Journal of the European Economic Association',
+      url: 'https://scholar.google.com/scholar_lookup?title=Contract%20Duration%20and%20Investment%20Incentives%3A%20Evidence%20from%20Land%20Tenancy%20Agreements%20in%2019th%20Century%20Italy',
+      topics: ['contracts', 'rural village economies', 'archive data', 'italy']
+    },
+    {
+      title: 'Social Capital in the Workplace: Evidence on Its Formation and Consequences',
+      year: 2008,
+      venue: 'Labour Economics',
+      url: 'https://scholar.google.com/scholar_lookup?title=Social%20Capital%20in%20the%20Workplace%3A%20Evidence%20on%20Its%20Formation%20and%20Consequences',
+      topics: ['contracts', 'field experiments', 'organisations', 'uk']
+    },
+    {
+      title: 'Social Connections and Incentives in the Workplace: Evidence from Personnel Data',
+      year: 2009,
+      venue: 'Econometrica',
+      url: 'https://scholar.google.com/scholar_lookup?title=Social%20Connections%20and%20Incentives%20in%20the%20Workplace%3A%20Evidence%20from%20Personnel%20Data',
+      topics: ['contracts', 'field experiments', 'organisations', 'uk']
+    },
+    {
+      title: 'Active and Passive Waste in Government Spending: Evidence from a Policy Experiment',
+      year: 2009,
+      venue: 'American Economic Review',
+      url: 'https://scholar.google.com/scholar_lookup?title=Active%20and%20Passive%20Waste%20in%20Government%20Spending%3A%20Evidence%20from%20a%20Policy%20Experiment',
+      topics: ['applied theory', 'organisations', 'public goods', 'italy']
+    },
+    {
+      title: 'Matching Firms, Managers and Incentives',
+      year: 2015,
+      venue: 'Journal of Labor Economics',
+      url: 'https://scholar.google.com/scholar_lookup?title=Matching%20Firms%2C%20Managers%20and%20Incentives',
+      topics: ['applied theory', 'organisations', 'contracts', 'italy']
+    },
+    {
+      title: 'No Margin, No Mission? A Field Experiment on Incentives for Public Service Delivery',
+      year: 2014,
+      venue: 'Journal of Public Economics',
+      url: 'https://scholar.google.com/scholar_lookup?title=No%20Margin%2C%20No%20Mission%3F%20A%20Field%20Experiment%20on%20Incentives%20for%20Public%20Service%20Delivery',
+      topics: ['field experiments', 'organisations', 'public goods', 'zambia']
+    },
+    {
+      title: 'Labour Markets and Poverty in Village Economies',
+      year: 2017,
+      venue: 'Quarterly Journal of Economics',
+      url: 'https://scholar.google.com/scholar_lookup?title=Labour%20Markets%20and%20Poverty%20in%20Village%20Economies',
+      topics: ['policy evaluation', 'rural village economies', 'inequality', 'bangladesh']
+    },
+    {
+      title: 'Altruistic Capital',
+      year: 2017,
+      venue: 'American Economic Review Papers & Proceedings',
+      url: 'https://scholar.google.com/scholar_lookup?title=Altruistic%20Capital',
+      topics: ['applied theory', 'organisations']
+    },
+    {
+      title: 'Managing the Family Firm: Evidence from CEOs at Work',
+      year: 2018,
+      venue: 'Review of Financial Studies',
+      url: 'https://scholar.google.com/scholar_lookup?title=Managing%20the%20Family%20Firm%3A%20Evidence%20from%20CEOs%20at%20Work',
+      topics: ['applied theory', 'organisations', 'multi-country']
+    },
+    {
+      title: 'Nation-Building Through Compulsory Schooling During the Age of Mass Migration',
+      year: 2018,
+      venue: 'Economic Journal',
+      url: 'https://scholar.google.com/scholar_lookup?title=Nation-Building%20Through%20Compulsory%20Schooling%20During%20the%20Age%20of%20Mass%20Migration',
+      topics: ['policy evaluation', 'archive data', 'usa']
+    },
+    {
+      title: 'Social Incentives',
+      year: 2018,
+      venue: 'Annual Review of Economics',
+      url: 'https://scholar.google.com/scholar_lookup?title=Social%20Incentives',
+      topics: ['review']
+    },
+    {
+      title: 'Women’s Empowerment in Action: Evidence from a Randomised Control Trial in Africa',
+      year: 2019,
+      venue: 'AEJ: Applied Economics',
+      url: 'https://scholar.google.com/scholar_lookup?title=Women%E2%80%99s%20Empowerment%20in%20Action%3A%20Evidence%20from%20a%20Randomised%20Control%20Trial%20in%20Africa',
+      topics: ['field experiments', 'rural village economies', 'uganda']
+    },
+    {
+      title: 'CEO Behaviour and Firm Performance',
+      year: 2019,
+      venue: 'Journal of Political Economy',
+      url: 'https://scholar.google.com/scholar_lookup?title=CEO%20Behaviour%20and%20Firm%20Performance',
+      topics: ['applied theory', 'field data', 'organisations', 'multi-country']
+    },
+    {
+      title: 'Losing Prosociality in the Quest for Talent?',
+      year: 2020,
+      venue: 'American Economic Review',
+      url: 'https://scholar.google.com/scholar_lookup?title=Losing%20Prosociality%20in%20the%20Quest%20for%20Talent%3F',
+      topics: ['applied theory', 'field experiments', 'organisations', 'zambia']
+    },
+    {
+      title: 'The Distinctive Values of Bankers',
+      year: 2020,
+      venue: 'AER Papers & Proceedings',
+      url: 'https://scholar.google.com/scholar_lookup?title=The%20Distinctive%20Values%20of%20Bankers',
+      topics: ['field data', 'organisations', 'multi-country']
+    },
+    {
+      title: 'Tackling Youth Unemployment: Evidence from a Labour Market Experiment in Uganda',
+      year: 2020,
+      venue: 'Econometrica',
+      url: 'https://scholar.google.com/scholar_lookup?title=Tackling%20Youth%20Unemployment%3A%20Evidence%20from%20a%20Labour%20Market%20Experiment%20in%20Uganda',
+      topics: ['policy evaluation', 'field experiments', 'uganda']
+    },
+    {
+      title: 'Do Women Respond Less to Performance Pay? Building Evidence from Multiple Experiments',
+      year: 2021,
+      venue: 'AER: Insights',
+      url: 'https://scholar.google.com/scholar_lookup?title=Do%20Women%20Respond%20Less%20to%20Performance%20Pay%3F%20Building%20Evidence%20from%20Multiple%20Experiments',
+      topics: ['review']
+    },
+    {
+      title: 'The Allocation of Authority in Organisations: A Field Experiment with Bureaucrats',
+      year: 2021,
+      venue: 'Quarterly Journal of Economics',
+      url: 'https://scholar.google.com/scholar_lookup?title=The%20Allocation%20of%20Authority%20in%20Organisations%3A%20A%20Field%20Experiment%20with%20Bureaucrats',
+      topics: ['contracts', 'field experiments', 'organisations', 'pakistan']
+    },
+    {
+      title: 'Why Do People Stay Poor?',
+      year: 2021,
+      venue: 'Quarterly Journal of Economics',
+      url: 'https://scholar.google.com/scholar_lookup?title=Why%20Do%20People%20Stay%20Poor%3F',
+      topics: ['bangladesh']
+    },
+    {
+      title: 'Young Adults and Labour Markets in Africa',
+      year: 2022,
+      venue: 'Journal of Economic Perspectives',
+      url: 'https://scholar.google.com/scholar_lookup?title=Young%20Adults%20and%20Labour%20Markets%20in%20Africa',
+      topics: ['multi-country']
+    },
+    {
+      title: 'Men Are from Mars, and Women Too: A Bayesian Meta-Analysis of Overconfidence Experiments',
+      year: 2022,
+      venue: 'Economica',
+      url: 'https://scholar.google.com/scholar_lookup?title=Men%20Are%20from%20Mars%2C%20and%20Women%20Too%3A%20A%20Bayesian%20Meta-Analysis%20of%20Overconfidence%20Experiments',
+      topics: ['review', 'multi-country']
+    },
+    {
+      title: 'Microfinance and Diversification',
+      year: 2022,
+      venue: 'Economica',
+      url: 'https://scholar.google.com/scholar_lookup?title=Microfinance%20and%20Diversification',
+      topics: ['rural village economies', 'bangladesh']
+    },
+    {
+      title: 'Economic Development and the Organisation of Labour: Evidence from the Jobs of the World Project',
+      year: 2022,
+      venue: 'Journal of the European Economic Association',
+      url: 'https://scholar.google.com/scholar_lookup?title=Economic%20Development%20and%20the%20Organisation%20of%20Labour%3A%20Evidence%20from%20the%20Jobs%20of%20the%20World%20Project',
+      topics: ['multi-country']
+    },
+    {
+      title: 'Social Incentives, Delivery Agents, and the Effectiveness of Development Interventions',
+      year: 2023,
+      venue: 'Journal of Political Economy Microeconomics',
+      url: 'https://scholar.google.com/scholar_lookup?title=Social%20Incentives%2C%20Delivery%20Agents%2C%20and%20the%20Effectiveness%20of%20Development%20Interventions',
+      topics: ['field experiments', 'organisations', 'uganda']
+    },
+    {
+      title: 'Safe Spaces for Teenage Girls in a Time of Crisis',
+      year: 2025,
+      venue: 'Journal of the European Economic Association',
+      url: 'https://scholar.google.com/scholar_lookup?title=Safe%20Spaces%20for%20Teenage%20Girls%20in%20a%20Time%20of%20Crisis',
+      topics: ['policy evaluation', 'uganda']
+    },
+    {
+      title: 'The Search for Good Jobs: Evidence from a Six-Year Experiment in Uganda',
+      year: 2025,
+      venue: 'Journal of Labor Economics',
+      url: 'https://scholar.google.com/scholar_lookup?title=The%20Search%20for%20Good%20Jobs%3A%20Evidence%20from%20a%20Six-Year%20Experiment%20in%20Uganda',
+      topics: ['field experiments', 'organisations', 'uganda']
+    },
+    {
+      title: 'Graduation',
+      year: 2024,
+      venue: 'Handbook of Social Protection',
+      url: 'https://scholar.google.com/scholar_lookup?title=Graduation',
+      topics: ['review', 'multi-country']
+    }
+  ];
+
+  const topicContainer = document.getElementById("topic-filters");
+  const searchInput = document.getElementById("papers-search");
+  const countEl = document.getElementById("papers-count");
+  const listEl = document.getElementById("papers-list");
+
+  let selectedTopic = null;
+
+  const norm = (s) => (s || "").toString().toLowerCase();
+  const uniq = (arr) => Array.from(new Set(arr));
+
+  function buildTopics() {
+    const allTopics = uniq(PAPERS.flatMap(p => p.topics || [])).sort((a, b) => a.localeCompare(b));
+    topicContainer.innerHTML = "";
+
+    const makeButton = (label, value) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.textContent = label;
+      btn.setAttribute("aria-pressed", selectedTopic === value ? "true" : "false");
+      btn.onclick = () => {
+        selectedTopic = (selectedTopic === value) ? null : value;
+        renderPapers();
+      };
+      return btn;
+    };
+
+    topicContainer.appendChild(makeButton("all", null));
+    allTopics.forEach(t => topicContainer.appendChild(makeButton(t, t)));
+  }
+
+  function matches(paper) {
+    const q = norm(searchInput.value.trim());
+    const inTopic = !selectedTopic || (paper.topics || []).includes(selectedTopic);
+    const haystack = norm(
+      [paper.title, paper.venue, String(paper.year || ""), (paper.topics || []).join(" ")].join(" | ")
+    );
+    const inSearch = !q || haystack.includes(q);
+    return inTopic && inSearch;
+  }
+
+  function renderPapers() {
+    buildTopics();
+
+    const filtered = PAPERS
+      .filter(matches)
+      .sort((a, b) => (b.year || 0) - (a.year || 0) || a.title.localeCompare(b.title));
+
+    countEl.textContent = `${filtered.length} paper${filtered.length === 1 ? "" : "s"}`;
+
+    listEl.innerHTML = "";
+    if (!filtered.length) {
+      const div = document.createElement("div");
+      div.textContent = "No results.";
+      listEl.appendChild(div);
+      return;
+    }
+
+    filtered.forEach(p => {
+      const div = document.createElement("div");
+      div.className = "paper-item";
+
+      const titleEl = document.createElement("div");
+      titleEl.className = "paper-title";
+      if (p.url) {
+        const a = document.createElement("a");
+        a.href = p.url;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.textContent = p.title;
+        titleEl.appendChild(a);
+      } else {
+        titleEl.textContent = p.title;
+      }
+      div.appendChild(titleEl);
+
+      const metaParts = [];
+      if (p.venue) metaParts.push(p.venue);
+      if (p.year) metaParts.push(String(p.year));
+      const meta = metaParts.join(", ");
+      if (meta) {
+        const metaEl = document.createElement("div");
+        metaEl.className = "paper-meta";
+        metaEl.textContent = meta;
+        div.appendChild(metaEl);
+      }
+
+      if (p.topics && p.topics.length) {
+        const topicsEl = document.createElement("div");
+        topicsEl.className = "paper-topics";
+        topicsEl.textContent = p.topics.join(" · ");
+        div.appendChild(topicsEl);
+      }
+
+      listEl.appendChild(div);
+    });
+  }
+
+  searchInput.addEventListener("input", renderPapers);
+  renderPapers();
+</script>
+</body>
+</html>
