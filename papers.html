@@ -51,23 +51,42 @@
     }
     #topic-filters {
       margin: 10px 0 6px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
     }
-    #topic-filters button {
-      background: none;
+    /* Topic filter buttons (pills with colours) */
+    .topic-filter-btn {
+      appearance: none;
+      -webkit-appearance: none;
       border: none;
-      padding: 0;
-      margin: 0 12px 6px 0;
+      padding: 6px 12px;
+      border-radius: 999px;
       font-family: inherit;
-      font-size: 15px;
-      color: #0366d6;
+      font-size: 13px;
+      line-height: 1;
       cursor: pointer;
-      text-decoration: underline;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform .06s ease, box-shadow .06s ease;
     }
-    #topic-filters button[aria-pressed="true"] {
+    .topic-filter-btn:hover { transform: translateY(-1px); }
+    .topic-filter-btn[aria-pressed="true"] {
+      box-shadow: 0 0 0 2px rgba(0,0,0,0.06) inset;
+      transform: none;
       font-weight: 600;
-      text-decoration: none;
-      color: #111;
     }
+    .topic-filter-btn.all {
+      background: transparent;
+      color: #0366d6;
+      padding-left: 0;
+      padding-right: 8px;
+      text-decoration: underline;
+      border-radius: 6px;
+    }
+
     #papers-search {
       width: 100%;
       max-width: 520px;
@@ -102,8 +121,39 @@
       color: #555;
     }
     .paper-topics {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    /* Tag styles */
+    .topic-tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
       font-size: 13px;
-      color: #666;
+      line-height: 1;
+      white-space: nowrap;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    /* Color variants (pastel periwinkle, pastel purple, pastel green default) */
+    .topic-tag.periwinkle,
+    .topic-filter-btn.periwinkle {
+      background: #DCE6FF; /* pastel periwinkle */
+      color: #1b2b7a;      /* darker periwinkle text for contrast */
+    }
+    .topic-tag.purple,
+    .topic-filter-btn.purple {
+      background: #E6E0FF; /* pastel purple */
+      color: #2e1a66;
+    }
+    .topic-tag.green,
+    .topic-filter-btn.green {
+      background: #e6f7ea; /* pastel green (default) */
+      color: #175c3d;
     }
   </style>
 </head>
@@ -170,7 +220,7 @@
       year: 2007,
       venue: 'World Bank Economic Review',
       url: 'https://scholar.google.com/scholar_lookup?title=Land%20Distribution%2C%20Incentives%20and%20the%20Choice%20of%20Production%20Techniques%3A%20Theory%20and%20Evidence%20from%20Rural%20Nicaragua',
-      topics: ['contracts', 'rural village economies', 'inequality', 'nicaragua']
+      topics: ['contracts', 'rural village economies', 'nicaragua']
     },
     {
       title: 'Incentives for Managers and Inequality Among Workers: Evidence from a Firm-Level Experiment',
@@ -226,7 +276,7 @@
       year: 2017,
       venue: 'Quarterly Journal of Economics',
       url: 'https://scholar.google.com/scholar_lookup?title=Labour%20Markets%20and%20Poverty%20in%20Village%20Economies',
-      topics: ['policy evaluation', 'rural village economies', 'inequality', 'bangladesh']
+      topics: ['policy evaluation', 'rural village economies', 'bangladesh']
     },
     {
       title: 'Altruistic Capital',
@@ -380,24 +430,56 @@
   const norm = (s) => (s || "").toString().toLowerCase();
   const uniq = (arr) => Array.from(new Set(arr));
 
+  // Topic -> color class mapping (lowercase keys)
+  const TOPIC_COLORS = {
+    "applied theory": "periwinkle",
+    "archive data": "periwinkle",
+    "field data": "periwinkle",
+    "field experiments": "periwinkle",
+    "multi-country": "periwinkle",
+    "policy evaluation": "periwinkle",
+    "review": "periwinkle",
+
+    "contracts": "purple",
+    "organisations": "purple",
+    "public goods": "purple",
+    "rural village economies": "purple"
+  };
+
+  function topicClass(topic) {
+    const key = norm(topic);
+    return TOPIC_COLORS[key] || "green";
+  }
+
   function buildTopics() {
     const allTopics = uniq(PAPERS.flatMap(p => p.topics || [])).sort((a, b) => a.localeCompare(b));
     topicContainer.innerHTML = "";
 
-    const makeButton = (label, value) => {
+    // "all" button (neutral / link-like)
+    const allBtn = document.createElement("button");
+    allBtn.type = "button";
+    allBtn.className = "topic-filter-btn all";
+    allBtn.textContent = "all";
+    allBtn.setAttribute("aria-pressed", selectedTopic === null ? "true" : "false");
+    allBtn.onclick = () => {
+      selectedTopic = null;
+      renderPapers();
+    };
+    topicContainer.appendChild(allBtn);
+
+    allTopics.forEach(t => {
       const btn = document.createElement("button");
       btn.type = "button";
-      btn.textContent = label;
-      btn.setAttribute("aria-pressed", selectedTopic === value ? "true" : "false");
+      const cls = topicClass(t);
+      btn.className = "topic-filter-btn " + cls;
+      btn.textContent = t;
+      btn.setAttribute("aria-pressed", selectedTopic === t ? "true" : "false");
       btn.onclick = () => {
-        selectedTopic = (selectedTopic === value) ? null : value;
+        selectedTopic = (selectedTopic === t) ? null : t;
         renderPapers();
       };
-      return btn;
-    };
-
-    topicContainer.appendChild(makeButton("all", null));
-    allTopics.forEach(t => topicContainer.appendChild(makeButton(t, t)));
+      topicContainer.appendChild(btn);
+    });
   }
 
   function matches(paper) {
@@ -459,7 +541,12 @@
       if (p.topics && p.topics.length) {
         const topicsEl = document.createElement("div");
         topicsEl.className = "paper-topics";
-        topicsEl.textContent = p.topics.join(" · ");
+        p.topics.forEach(t => {
+          const span = document.createElement("span");
+          span.className = "topic-tag " + topicClass(t);
+          span.textContent = t;
+          topicsEl.appendChild(span);
+        });
         div.appendChild(topicsEl);
       }
 
