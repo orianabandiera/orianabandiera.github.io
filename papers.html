@@ -98,7 +98,7 @@
       border-radius: 4px;
       box-sizing: border-box;
     }
- 
+
     .paper-item {
       margin-bottom: 16px;
     }
@@ -168,9 +168,10 @@
 <main>
   <section id="papers-by-topic">
     <h2>Papers by topic</h2>
+    <div id="papers-count"></div>
     <div id="topic-filters"></div>
     <input type="search" id="papers-search" placeholder="Search papers…" autocomplete="off">
-   
+
     <div id="papers-list"></div>
   </section>
 </main>
@@ -384,7 +385,7 @@
       year: 2022,
       venue: 'Journal of the European Economic Association',
       url: 'https://scholar.google.com/scholar_lookup?title=Economic%20Development%20and%20the%20Organisation%20of%20Labour%3A%20Evidence%20from%20the%20Jobs%20of%20the%20World%20Project',
-      topics: ['multi-country', 'organisations' 'poverty']
+      topics: ['multi-country', 'organisations', 'poverty']
     },
     {
       title: 'Social Incentives, Delivery Agents, and the Effectiveness of Development Interventions',
@@ -440,8 +441,14 @@
     "contracts": "purple",
     "organisations": "purple",
     "public goods": "purple",
-    "rural village economies": "purple"
+    "rural village economies": "purple",
     "poverty": "purple"
+  };
+
+  const COLOR_ORDER = {
+    periwinkle: 1,
+    purple: 2,
+    green: 3
   };
 
   function topicClass(topic) {
@@ -450,7 +457,14 @@
   }
 
   function buildTopics() {
-    const allTopics = uniq(PAPERS.flatMap(p => p.topics || [])).sort((a, b) => a.localeCompare(b));
+    const allTopics = uniq(PAPERS.flatMap(p => p.topics || []))
+      .sort((a, b) => {
+        const ca = COLOR_ORDER[topicClass(a)] || 99;
+        const cb = COLOR_ORDER[topicClass(b)] || 99;
+        if (ca !== cb) return ca - cb;
+        return a.localeCompare(b);
+      });
+
     topicContainer.innerHTML = "";
 
     // "all" button (neutral / link-like)
@@ -497,7 +511,9 @@
       .filter(matches)
       .sort((a, b) => (b.year || 0) - (a.year || 0) || a.title.localeCompare(b.title));
 
-    countEl.textContent = `${filtered.length} paper${filtered.length === 1 ? "" : "s"}`;
+    if (countEl) {
+      countEl.textContent = `${filtered.length} paper${filtered.length === 1 ? "" : "s"}`;
+    }
 
     listEl.innerHTML = "";
     if (!filtered.length) {
