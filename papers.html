@@ -98,11 +98,7 @@
       border-radius: 4px;
       box-sizing: border-box;
     }
-    #papers-count {
-      font-size: 14px;
-      color: #555;
-      margin: 4px 0 14px 0;
-    }
+ 
     .paper-item {
       margin-bottom: 16px;
     }
@@ -174,7 +170,7 @@
     <h2>Papers by topic</h2>
     <div id="topic-filters"></div>
     <input type="search" id="papers-search" placeholder="Search papers…" autocomplete="off">
-    <div id="papers-count"></div>
+   
     <div id="papers-list"></div>
   </section>
 </main>
@@ -276,7 +272,7 @@
       year: 2017,
       venue: 'Quarterly Journal of Economics',
       url: 'https://scholar.google.com/scholar_lookup?title=Labour%20Markets%20and%20Poverty%20in%20Village%20Economies',
-      topics: ['policy evaluation', 'rural village economies', 'bangladesh']
+      topics: ['policy evaluation', 'rural village economies', 'bangladesh', 'poverty']
     },
     {
       title: 'Altruistic Capital',
@@ -339,7 +335,7 @@
       year: 2020,
       venue: 'Econometrica',
       url: 'https://scholar.google.com/scholar_lookup?title=Tackling%20Youth%20Unemployment%3A%20Evidence%20from%20a%20Labour%20Market%20Experiment%20in%20Uganda',
-      topics: ['policy evaluation', 'field experiments', 'uganda']
+      topics: ['policy evaluation', 'field experiments', 'uganda', 'poverty']
     },
     {
       title: 'Do Women Respond Less to Performance Pay? Building Evidence from Multiple Experiments',
@@ -381,28 +377,28 @@
       year: 2022,
       venue: 'Economica',
       url: 'https://scholar.google.com/scholar_lookup?title=Microfinance%20and%20Diversification',
-      topics: ['rural village economies', 'bangladesh']
+      topics: ['rural village economies', 'bangladesh', 'poverty']
     },
     {
       title: 'Economic Development and the Organisation of Labour: Evidence from the Jobs of the World Project',
       year: 2022,
       venue: 'Journal of the European Economic Association',
       url: 'https://scholar.google.com/scholar_lookup?title=Economic%20Development%20and%20the%20Organisation%20of%20Labour%3A%20Evidence%20from%20the%20Jobs%20of%20the%20World%20Project',
-      topics: ['multi-country']
+      topics: ['multi-country', 'organisations' 'poverty']
     },
     {
       title: 'Social Incentives, Delivery Agents, and the Effectiveness of Development Interventions',
       year: 2023,
       venue: 'Journal of Political Economy Microeconomics',
       url: 'https://scholar.google.com/scholar_lookup?title=Social%20Incentives%2C%20Delivery%20Agents%2C%20and%20the%20Effectiveness%20of%20Development%20Interventions',
-      topics: ['field experiments', 'organisations', 'uganda']
+      topics: ['field experiments', 'organisations', 'poverty', 'uganda']
     },
     {
       title: 'Safe Spaces for Teenage Girls in a Time of Crisis',
       year: 2025,
       venue: 'Journal of the European Economic Association',
       url: 'https://scholar.google.com/scholar_lookup?title=Safe%20Spaces%20for%20Teenage%20Girls%20in%20a%20Time%20of%20Crisis',
-      topics: ['policy evaluation', 'uganda']
+      topics: ['policy evaluation', 'sierra leone', 'poverty']
     },
     {
       title: 'The Search for Good Jobs: Evidence from a Six-Year Experiment in Uganda',
@@ -416,7 +412,7 @@
       year: 2024,
       venue: 'Handbook of Social Protection',
       url: 'https://scholar.google.com/scholar_lookup?title=Graduation',
-      topics: ['review', 'multi-country']
+      topics: ['review', 'multi-country', 'poverty']
     }
   ];
 
@@ -440,10 +436,12 @@
     "policy evaluation": "periwinkle",
     "review": "periwinkle",
 
+
     "contracts": "purple",
     "organisations": "purple",
     "public goods": "purple",
     "rural village economies": "purple"
+    "poverty": "purple"
   };
 
   function topicClass(topic) {
